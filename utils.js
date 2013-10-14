@@ -5,7 +5,7 @@ var utils =
 	{
 		if(this instanceof timer)
 		{
-			if 
+            if 
 			( 
 				typeof arguments[0] != 'number' && 
 				typeof arguments[1].onfinish ==='undefined'
