@@ -1,7 +1,6 @@
 var utils =
 {
-    // Extremely flexible timer system
-	timer:function(duration, callbacks, options)
+    timer:function(duration, callbacks, options)
 	{
 		if(this instanceof timer)
 		{
@@ -81,9 +80,10 @@ var utils =
 				var now = new Date().getTime();
 				this.time = now-current+total;
 				
-				this.progress = this.time / this.duration;
+				var p = this.time/this.duration;
+				this.progress = (p>1)?1:p;
 				
-				if(onprogress) onprogress((this.progress>1)?1:this.progress);
+				if(onprogress) onprogress(this.progress);
 				
 				var ease;
 				if(this.ease) ease((this.progress>1)?1:this.progress);
@@ -101,4 +101,6 @@ var utils =
 		}
 		else return new timer(duration, callbacks, options);
 	}
+	
+	// Additonal stuff for the library goes here.
 };
